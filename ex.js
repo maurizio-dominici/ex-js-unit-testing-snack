@@ -33,4 +33,28 @@ function isPalindrome(str) {
   return str.trim() === reversStr;
 }
 
-module.exports = { getInitials, createSlug, average, isPalindrome };
+function findPostById(arr, id) {
+  if (isNaN(id)) {
+    throw new Error("id del post non puo essere diverso da un numero");
+  }
+
+  arr.forEach((obj) => {
+    if (
+      obj.id === undefined ||
+      obj.title === undefined ||
+      obj.slug === undefined
+    ) {
+      throw new Error("l'array non rispetta la struttura dati");
+    }
+  });
+
+  return arr.find((obj) => obj.id === id);
+}
+
+module.exports = {
+  getInitials,
+  createSlug,
+  average,
+  isPalindrome,
+  findPostById,
+};
