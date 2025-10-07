@@ -4,6 +4,10 @@ function getInitials(completeName) {
 }
 
 function createSlug(str) {
+  if (!str) {
+    throw new Error("Titolo non valido");
+  }
+
   const lowerStr = str.toLowerCase().replaceAll(" ", "-");
   return lowerStr;
 }
@@ -24,4 +28,9 @@ function average(arr) {
   return arr.reduce((acc, curr) => acc + curr, 0) / arr.length;
 }
 
-module.exports = { getInitials, createSlug, average };
+function isPalindrome(str) {
+  const reversStr = str.trim().split("").reverse().join("");
+  return str.trim() === reversStr;
+}
+
+module.exports = { getInitials, createSlug, average, isPalindrome };
